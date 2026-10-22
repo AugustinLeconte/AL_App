@@ -1,0 +1,48 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste de tâches</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="date-header">
+      <div class="date-left">
+        <span class="day-number">{{ today | date:'dd' }}</span>
+        <div class="date-details">
+          <span class="month">{{ today | date:'MMM' }}</span>
+          <span class="year">{{ today | date:'yyyy' }}</span>
+        </div>
+      </div>
+
+      <div class="date-right">
+        <span class="day-name">{{ today | date:'EEEE' }}</span>
+      </div>
+    </div>
+
+    <ion-list>
+      <ion-note *ngIf="tasks.length === 0">Pas de taches enregistrées.</ion-note>
+
+      <ion-item lines="none" *ngFor="let task of tasks" class="task-item " [disabled]="task.isDone" (click)="toggleTaskStatus(task.id)">
+        <ion-label class="ion-text-wrap">
+          <h2>{{ task.title }}</h2>
+          <p *ngIf="task.note">{{ task.note }}</p>
+          <ion-note *ngIf="!task.isDone && task.expirationDate" class="time-remaining">
+            {{ getTimeRemaining(task.expirationDate) }}
+          </ion-note>
+        </ion-label>
+
+        <ion-checkbox slot="end" [checked]="task.isDone"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <ion-button shape="round" class="create-task-btn" (click)="isCreateTaskFormOpen = true">
+      <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>
+
+<app-create-task-form [isModalOpen]="isCreateTaskFormOpen" (closeModal)="isCreateTaskFormOpen = false"></app-create-task-form>

@@ -1,0 +1,100 @@
+.container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: nowrap;
+   height: 100%;
+   gap: 20px;
+}
+
+.create-task-btn {
+    width: 65px;
+    aspect-ratio: 1;
+
+    ion-icon {
+        font-size: 35px;
+    }
+}
+
+ion-list {
+    height: 400px;
+    width: 85%;
+    overflow: scroll;
+    text-align: center;
+    background: transparent;
+}
+
+ion-list::-webkit-scrollbar {
+  display: none;
+}
+
+
+  .date-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+
+    .date-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .day-number {
+        font-size: 2.8rem;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+
+      .date-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .date-right {
+      .day-name {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .task-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --inner-padding-end: 0;
+  --min-height: 60px;
+  --background: transparent;
+  cursor: pointer;
+  margin-bottom: 5px;
+
+  h2 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    transition: color 0.2s ease;
+  }
+
+  p {
+    font-size: 0.8rem;
+    color: #8e8e93;
+    margin-bottom: 4px;
+  }
+
+  .time-remaining {
+    font-size: 0.75rem;
+    color: #38d39f;
+    font-weight: 500;
+  }
+
+}

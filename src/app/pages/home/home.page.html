@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Accueil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Accueil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card color="primary" [routerLink]="['/to-do-list']">
+    <ion-card-header>
+      <ion-card-title>Liste de tâches</ion-card-title>
+      <ion-card-subtitle>Organisation</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Organisez votre journée, semaine, mois ... avec la liste de vos priorités du moment.
+    </ion-card-content>
+  </ion-card>
+</ion-content>
